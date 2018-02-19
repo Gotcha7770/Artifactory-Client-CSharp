@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netcoreapp2.0;netstandard2.0;net452</TargetFrameworks>
+    <Title>ArtifactoryClient</Title>
+    <Version>0.0.1-alpha</Version>
+    <Copyright>Gotcha ©  2016</Copyright>
+    <Description>REST client for Jfrog Artifactory</Description>
+    <Authors>Gotcha</Authors>
+    <Company></Company>
+    <RepositoryUrl></RepositoryUrl>
+    <PackageReleaseNotes></PackageReleaseNotes>
+    <AssemblyVersion>0.0.1.1</AssemblyVersion>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>bin\Debug\netcoreapp2.0\ArtifactoryClient.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="RestSharp" Version="106.2.1" />
+  </ItemGroup>
+
+</Project>
