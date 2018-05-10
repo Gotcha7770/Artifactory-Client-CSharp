@@ -1,12 +1,15 @@
 ﻿using System;
 using ArtifactoryClient.Interfaces;
-using ArtifactoryClient.Models;
-using ArtifactoryClient.Utils;
+using ArtifactoryClient.Models.Repository;
+using ArtifactoryClient.Models.Search;
 using RestSharp;
 using RestSharp.Authenticators;
 
 namespace ArtifactoryClient
 {
+    /// <summary>
+    /// REST client for JFrog Artifactory service
+    /// </summary>
     public class ArtifactoryImpl : IArtifactory
     {
         public IRestClient RestClient { get; }
@@ -32,23 +35,21 @@ namespace ArtifactoryClient
 
         #region Interface Implementation
 
-        public string Uri => RestClient.BaseUrl.ToString();
-
-        public string ContextName { get; } //???
-
+        public Uri Uri => RestClient.BaseUrl;
+        
         public string UserAgent => RestClient.UserAgent;
 
-        public IRepositories Repositories => new RepositoriesImpl(RestClient, ArtifactoryBuilder.ApiBase);
+        public IRepositories Repositories => new RepositoriesImpl(RestClient);
 
-        public IRepositoryHandle GetRepository(string repo)
+        public IRepository GetRepository(string repo)
         {
             if (string.IsNullOrEmpty(repo))
-                throw new ArgumentException(nameof(repo));
+                throw new ArgumentNullException(nameof(repo));
 
             return Repositories.Repository(repo);
         }
 
-        public ISearches Searches => new SearchesImpl(RestClient, ArtifactoryBuilder.ApiBase);
+        public QuickSearchConfiguration Search() => new QuickSearchConfiguration(RestClient);
 
         public IRestResponse RestCall(IRestRequest request)
         {
@@ -59,7 +60,6 @@ namespace ArtifactoryClient
         { }
 
         #endregion
-
 
     }
 }

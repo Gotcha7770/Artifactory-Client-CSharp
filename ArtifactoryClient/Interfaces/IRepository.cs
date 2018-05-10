@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using ArtifactoryClient.Models.Repository;
+using RestSharp;
 
 namespace ArtifactoryClient.Interfaces
 {
@@ -12,26 +13,8 @@ namespace ArtifactoryClient.Interfaces
 
     public interface IRepository
     {
-        //String MAVEN_2_REPO_LAYOUT = "maven-2-default";
+        IRestResponse Download(string path);
 
-        string Key { get; }
-
-        RepositoryType Type { get; }
-
-        string Description { get; }
-
-        string Notes { get; }
-
-        string GetIncludesPattern();
-
-        string GetExcludesPattern();
-
-        string GetRepoLayoutRef();
-
-        //IRepositorySettings GetRepositorySettings();
-
-        //IXraySettings GetXraySettings();
-
-        Dictionary<string, object> GetCustomProperties();
+        UploadingConfiguration Upload(string path, byte[] data);
     }
 }
