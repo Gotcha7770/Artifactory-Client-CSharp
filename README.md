@@ -34,8 +34,59 @@ IArtifactory artifactory = ArtifactoryBuilder.CreateArtifactory()
 
 ```csharp
 IArtifactory artifactory = ArtifactoryBuilder.CreateArtifactory()
-    .SetUserName(TestConnection.UserName)
-    .SetPassword(TestConnection.Password)
-    .SetUrl(TestConnection.Url + TestConnection.ArtifactorySection)
+    .SetUserName(userName)
+    .SetPassword(password)
+    .SetUrl(http:\\some\url)
     .Build();
+```
+
+### Search
+
+1) Quick search
+
+```csharp
+IList<Artifact> artifacts = _artifactory.Search()
+    .Repositories("repositoryName", "anotherRepositoryName")
+    .ByName("*.zip")
+    .Run();
+```
+
+2) Properties search
+
+```csharp
+IList<Artifact> artifacts = _artifactory.Search()
+    .Repositories("repositoryName")
+    .WithProperty("name", "")
+    .WithProperty("version", "")
+    .WithOptions(ResponseOptions.Properties|ResponseOptions.Info)
+    .Run();
+```
+
+3) Create period search
+
+```csharp
+IList<Artifact> artifacts = _artifactory.Search()
+    .Repositories("repositoryName")
+    .ArtifactsCreatedInDateRange()
+    .From(new DateTime(2018, 2, 24))
+    .To(DateTime.UtcNow)
+    .WithOptions(ResponseOptions.Properties)
+    .Run();
+```
+### Download artifacts
+
+```csharp
+ string artifactPath = "your/artifact/path";
+ IRestResponse response = _artifactory.GetRepository("repositoryName").Download(artifactPath);
+```
+
+### Upload artifacts
+
+```csharp
+IRestResponse response = _artifactory.GetRepository("repositoryName")
+    .Upload("artifactName/artifactName.1.0.3.ext", bytes)
+    .WithProperty("name", "artifactName")
+    .WithProperty("version", "1.0.3")
+    .WithProperty("dependencies", new[] { "dep1", "dep2" })
+    .Run();
 ```
