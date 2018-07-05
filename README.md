@@ -3,7 +3,7 @@ Rest client for Artifactory on C# partially inspired by https://github.com/jfrog
 
 Now only search, downloading and uploading artifatcs is available.
 
-There is 3 way to create Artifactory client:
+There are three ways to create Artifactory client:
 
 1) with implementation of IRestClient
 
