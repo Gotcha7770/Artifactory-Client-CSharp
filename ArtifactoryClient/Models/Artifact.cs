@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Newtonsoft.Json;
+using RestSharp;
 
 namespace ArtifactoryClient.Models
 {
@@ -70,10 +71,12 @@ namespace ArtifactoryClient.Models
         }
     }
 
-    internal class ArtifactslList
+    public class ArtifactslList
     {
         [JsonProperty("results")]
         public IList<Artifact> Artifacts;
+
+        public IRestResponse Response { get; set; }
     }
 }
 

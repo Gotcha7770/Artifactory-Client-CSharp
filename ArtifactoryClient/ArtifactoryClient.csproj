@@ -3,14 +3,15 @@
   <PropertyGroup>
     <TargetFrameworks>netcoreapp2.0;netstandard2.0;net452</TargetFrameworks>
     <Title>ArtifactoryClient</Title>
-    <Version>0.0.1-alpha</Version>
+    <Version>0.1.2-beta</Version>
     <Copyright>Gleb Bakanov©  2018</Copyright>
     <Description>REST client for Jfrog Artifactory</Description>
     <Authors>Gleb Bakanov</Authors>
     <Company></Company>
+    <ProjectUrl>https://github.com/Gotcha7770/Artifacotry-Client-CSharp</ProjectUrl>
     <RepositoryUrl>https://github.com/Gotcha7770/Artifacotry-Client-CSharp</RepositoryUrl>
     <PackageReleaseNotes></PackageReleaseNotes>
-    <AssemblyVersion>0.0.1.1</AssemblyVersion>
+    <AssemblyVersion>0.1.2.2</AssemblyVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

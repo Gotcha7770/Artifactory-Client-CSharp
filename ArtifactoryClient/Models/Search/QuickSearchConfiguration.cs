@@ -7,7 +7,7 @@ namespace ArtifactoryClient.Models.Search
     public class QuickSearchConfiguration : BaseSearchConfiguration
     {
         private readonly string _apiBase;
-        private readonly Dictionary<string, string> _properties = new Dictionary<string, string>();
+        private Dictionary<string, string> _properties = new Dictionary<string, string>();
         private string[] _repositories;
 
         public QuickSearchConfiguration(IRestClient restClient)
@@ -25,6 +25,12 @@ namespace ArtifactoryClient.Models.Search
         public QuickSearchConfiguration WithProperty(string name, string value)
         {
             _properties[name] = value;
+            return this;
+        }
+
+        public QuickSearchConfiguration WithProperties(Dictionary<string, string> values)
+        {
+            _properties = values;
             return this;
         }
          
