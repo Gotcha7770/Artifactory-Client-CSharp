@@ -65,7 +65,7 @@ namespace ArtifactoryClient.Models.Search
         /// <summary>
         /// Search start method
         /// </summary>
-        public virtual IList<Artifact> Run()
+        public virtual ArtifactslList Run()
         {
             IRestRequest request = new RestRequest(GetResource());
             string headerValue = Options.ToString().ToLower();
@@ -74,18 +74,25 @@ namespace ArtifactoryClient.Models.Search
             IRestResponse response = RestClient.Get(request);
 
             HttpStatusCode status = response.StatusCode;
-            if (status != HttpStatusCode.OK && status != HttpStatusCode.NoContent && status != HttpStatusCode.Accepted)
-                return null;
+            if (status != HttpStatusCode.OK
+                && status != HttpStatusCode.NoContent
+                && status != HttpStatusCode.Accepted)
+            {
+                return new ArtifactslList { Response = response };
+            }
 
-            return JsonConvert.DeserializeObject<ArtifactslList>(response.Content).Artifacts;
+            var artifacts =  JsonConvert.DeserializeObject<ArtifactslList>(response.Content);
+            artifacts.Response = response;
+
+            return artifacts;
         }
 
         /// <summary>
         /// Async search start method
         /// </summary>
-        public Task<IEnumerable<Artifact>> RunAsync()
+        public Task<ArtifactslList> RunAsync()
         {
-            return Task<IEnumerable<Artifact>>.Factory.StartNew(Run);
+            return Task<ArtifactslList>.Factory.StartNew(Run);
         }
     }
 }
