@@ -1,4 +1,4 @@
-# Artifacotry-Client-CSharp [![Build status](https://ci.appveyor.com/api/projects/status/7q38la3x5wo4lffc?svg=true)](https://ci.appveyor.com/project/Gotcha7770/artifacotry-client-csharp)
+# Artifacotry-Client-CSharp [![Build status](https://ci.appveyor.com/api/projects/status/7q38la3x5wo4lffc?svg=true)](https://ci.appveyor.com/project/Gotcha7770/artifacotry-client-csharp) [![NuGet Version](http://img.shields.io/nuget/v/ArtifactoryClient.svg?style=flat)](https://www.nuget.org/packages/ArtifactoryClient/)
 Rest client for Artifactory on C# partially inspired by https://github.com/jfrog/artifactory-client-java
 
 Now only search, downloading and uploading artifatcs is available.
