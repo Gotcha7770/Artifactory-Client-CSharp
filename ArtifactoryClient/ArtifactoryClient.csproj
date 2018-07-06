@@ -1,16 +1,17 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFrameworks>netcoreapp2.0;netstandard2.0;net452</TargetFrameworks>
     <Title>ArtifactoryClient</Title>
-    <Version>0.0.1-alpha</Version>
-    <Copyright>Gotcha ©  2016</Copyright>
+    <Version>0.1.2-beta</Version>
+    <Copyright>Gleb Bakanov©  2018</Copyright>
     <Description>REST client for Jfrog Artifactory</Description>
-    <Authors>Gotcha</Authors>
+    <Authors>Gleb Bakanov</Authors>
     <Company></Company>
-    <RepositoryUrl></RepositoryUrl>
+    <ProjectUrl>https://github.com/Gotcha7770/Artifacotry-Client-CSharp</ProjectUrl>
+    <RepositoryUrl>https://github.com/Gotcha7770/Artifacotry-Client-CSharp</RepositoryUrl>
     <PackageReleaseNotes></PackageReleaseNotes>
-    <AssemblyVersion>0.0.1.1</AssemblyVersion>
+    <AssemblyVersion>0.1.2.2</AssemblyVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -18,6 +19,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
     <PackageReference Include="RestSharp" Version="106.2.1" />
   </ItemGroup>
 

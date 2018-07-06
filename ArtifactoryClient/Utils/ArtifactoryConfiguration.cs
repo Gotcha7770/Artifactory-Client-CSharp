@@ -10,7 +10,7 @@ namespace ArtifactoryClient.Utils
     //{
     //    IArtifactoryConfiguration SetRestClient(IRestClient restClient);
     //    IArtifactoryConfiguration SetAuthentificator(IAuthenticator authenticator);
-    //    IArtifactoryConfiguration SetUsername(string username);
+    //    IArtifactoryConfiguration SetUserName(string username);
     //    IArtifactoryConfiguration SetPassword(string password);
     //    IArtifactoryConfiguration SetUrl(string url);
     //    IArtifactoryConfiguration SetUserAgent(string userAgent);
@@ -45,7 +45,7 @@ namespace ArtifactoryClient.Utils
             return new ArtifactoryAuthentificatorConfiguration(authenticator, Url, UserAgent);
         }
 
-        public virtual ArtifactoryConfiguration SetUsername(string username)
+        public virtual ArtifactoryConfiguration SetUserName(string username)
         {
             UserName = username;
             return this;

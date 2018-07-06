@@ -1,29 +1,20 @@
 ﻿using System;
+using ArtifactoryClient.Models.Search;
 using RestSharp;
 
 namespace ArtifactoryClient.Interfaces
 {
     public interface IArtifactory : IDisposable
     {
-        string Uri { get; }
-
-        string ContextName { get; }
-
+        Uri Uri { get; }
+        
         string UserAgent { get; }
 
         IRepositories Repositories { get; }
 
-        IRepositoryHandle GetRepository(string repo);
+        IRepository GetRepository(string repo);
 
-        ISearches Searches { get; }
-
-        //ISecurity Security { get; }
-
-        //IStorage Storage { get; }
-
-        //IPlugins Plugins { get; }
-
-        //IArtifactorySystem System { get; }
+        QuickSearchConfiguration Search();
 
         IRestResponse RestCall(IRestRequest request);
     }

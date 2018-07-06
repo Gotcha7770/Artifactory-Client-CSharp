@@ -1,8 +1,9 @@
-﻿namespace ArtifactoryClient.Models
+﻿namespace ArtifactoryClient.Models.Repository
 {
     public class RepositoryPath
     {
         public string RepositoryKey { get; }
+
         public string ItemPath { get; }
 
         public RepositoryPath(string repositoryKey, string itemPath)

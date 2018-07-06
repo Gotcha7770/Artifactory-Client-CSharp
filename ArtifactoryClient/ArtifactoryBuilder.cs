@@ -34,8 +34,9 @@ namespace ArtifactoryClient
 
     public static class ArtifactoryBuilder
     {
-        public static string DefaultUserAgent = "artifactory-client-DotNet";
-        public static string ApiBase = "/api";
+        public static readonly string DefaultUserAgent = "artifactory-client-DotNet";
+        public static readonly string ApiBase = "/api";
+        public static readonly string DetailHeaderName = "X-Result-Detail";
 
         public static ArtifactoryConfiguration CreateArtifactory()
         {
