@@ -21,7 +21,7 @@ namespace ArtifactoryClient
             //проверка url???
             RestClient = new RestClient
             {
-                BaseUrl = new Uri(url),
+                BaseUrl = new Uri(url + "artifactory/"),
                 Authenticator = new HttpBasicAuthenticator(userName, password)
             };
         }

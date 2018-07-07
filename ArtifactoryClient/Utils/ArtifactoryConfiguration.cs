@@ -81,7 +81,7 @@ namespace ArtifactoryClient.Utils
         {
             IRestClient restClient = new RestClient
             {
-                BaseUrl = new Uri(Url),
+                BaseUrl = new Uri(Url + "artifactory/"),
                 Authenticator = new HttpBasicAuthenticator(UserName, Password),
                 UserAgent = UserAgent ?? ArtifactoryBuilder.DefaultUserAgent,
                 Proxy = this.Proxy
