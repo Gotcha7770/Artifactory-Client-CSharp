@@ -45,16 +45,19 @@ IArtifactory artifactory = ArtifactoryBuilder.CreateArtifactory()
 1) Quick search
 
 ```csharp
-IList<Artifact> artifacts = _artifactory.Search()
+ArtifactslList artifactsList = _artifactory.Search()
     .Repositories("repositoryName", "anotherRepositoryName")
     .ByName("*.zip")
     .Run();
+    
+if(artifactsList.Response.Status == HttpStatusCode.OK)
+    return artifactsList.Artifacts;
 ```
 
 2) Properties search
 
 ```csharp
-IList<Artifact> artifacts = _artifactory.Search()
+ArtifactslList artifactsList = _artifactory.Search()
     .Repositories("repositoryName")
     .WithProperty("name", "someName")
     .WithProperty("version", "2.3.1")
@@ -65,7 +68,7 @@ IList<Artifact> artifacts = _artifactory.Search()
 3) Create period search
 
 ```csharp
-IList<Artifact> artifacts = _artifactory.Search()
+ArtifactslList artifactsList = artifactory.Search()
     .Repositories("repositoryName")
     .ArtifactsCreatedInDateRange()
     .From(new DateTime(2018, 2, 24))
@@ -76,13 +79,13 @@ IList<Artifact> artifacts = _artifactory.Search()
 ### Download artifacts
 
 ```csharp
- IRestResponse response = _artifactory.GetRepository("repositoryName").Download("your/artifact/path");
+ IRestResponse response = artifactory.GetRepository("repositoryName").Download("your/artifact/path");
 ```
 
 ### Upload artifacts
 
 ```csharp
-IRestResponse response = _artifactory.GetRepository("repositoryName")
+IRestResponse response = artifactory.GetRepository("repositoryName")
     .Upload("artifactName/artifactName.1.0.3.ext", bytes)
     .WithProperty("name", "artifactName")
     .WithProperty("version", "1.0.3")
