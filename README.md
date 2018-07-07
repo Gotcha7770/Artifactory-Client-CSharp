@@ -10,6 +10,8 @@ There are three ways to create Artifactory client:
 ```csharp
 IRestClient client = new RestClient
 {
+    //url is dns name or ip address of your artifactory server
+    //without any subfolders
     BaseUrl = new Uri("http:\\some\url"),
     Authenticator = new HttpBasicAuthenticator("userName", "password")
 };
