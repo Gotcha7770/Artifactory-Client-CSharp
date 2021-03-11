@@ -52,7 +52,7 @@ ArtifactslList artifactsList = _artifactory.Search()
     .ByName("*.zip")
     .Run();
     
-if(artifactsList.Response.Status == HttpStatusCode.OK)
+if(artifactsList.Response.StatusCode == HttpStatusCode.OK)
     return artifactsList.Artifacts;
 ```
 
